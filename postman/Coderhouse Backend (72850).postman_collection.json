@@ -368,7 +368,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"title\":\"Remeron Rustico Over Iggy Beige\",\r\n    \"description\":\"Remeron escote redondo, con detalles de bordador en escote y mandas. Cuenta con proceso de lavado y desgaste snow. Calce oversize. Tela pesada.\",\r\n    \"code\":\"remera1\",\r\n    \"price\":54999,\r\n    \"status\":true,\r\n    \"category\":\"remeras\",\r\n    \"thumbnails\":[\"https://vcp.com.ar/cdn/shop/files/Beige5_c739bd02-65a2-4dc5-8e69-84d3535beaaf.jpg?v=1734721585&width=700\", \"https://vcp.com.ar/cdn/shop/files/Beige2_d5f44ad8-201f-4eb1-9651-ea385ed7a131.jpg?v=1734721585&width=700\"]\r\n}",
+									"raw": "{\r\n    \"title\":\"Remeron Rustico Over Iggy Militar\",\r\n    \"description\":\"Remeron escote redondo, con detalles de bordador en escote y mandas. Cuenta con proceso de lavado y desgaste snow. Calce oversize. Tela pesada.\",\r\n    \"code\":\"remera1\",\r\n    \"price\":54999,\r\n    \"status\":true,\r\n    \"category\":\"remeras\",\r\n    \"thumbnails\":[\"https://vcp.com.ar/cdn/shop/files/Militar5_eefc36cc-57bf-49c0-9e5c-51dcf96154a0.jpg?v=1734721631&width=700\", \"https://vcp.com.ar/cdn/shop/files/Militar4_3d728646-9535-428d-893c-e08ad1665cce.jpg?v=1734721631&width=700\"]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -376,7 +376,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/products/1",
+									"raw": "http://localhost:8080/api/products/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -385,7 +385,7 @@
 									"path": [
 										"api",
 										"products",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -496,6 +496,149 @@
 										"1",
 										"product",
 										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Clase 8",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Get Users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\":\"Patricio\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pets",
+					"item": [
+						{
+							"name": "Get Pets",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/pets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Pet",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nombre",
+											"value": "Benita",
+											"type": "text"
+										},
+										{
+											"key": "imagen",
+											"type": "file",
+											"src": "/C:/Users/javie/Downloads/320px-Siam_lilacpoint.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/pets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pets"
 									]
 								}
 							},
