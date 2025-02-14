@@ -1,19 +1,20 @@
-import fs from "fs"
+//import fs from "fs"
+import { cartModel } from "../models/cart.model.js";
 
 class CartManager {
     constructor() {
-        this.carts = [],
+        /* this.carts = [],
         this.file = "carrito.json",
-        this.createFile()
+        this.createFile() */
     }
 
-    createFile() {
+    /* createFile() {
         if (!fs.existsSync(this.file)) {
             fs.writeFileSync(this.file, JSON.stringify(this.carts))
         }
-    }
+    } */
 
-    getId() {
+    /* getId() {
         this.getCarts();
         let max = 0;
 
@@ -24,29 +25,32 @@ class CartManager {
         })
 
         return max + 1;
-    }
+    } */
 
-    getCarts() {
-        this.carts = JSON.parse(fs.readFileSync(this.file, "utf-8"));
+    async getCarts() {
+        /* this.carts = JSON.parse(fs.readFileSync(this.file, "utf-8"));
         
-        return this.carts;
+        return this.carts; */
+        return await cartModel.find().lean();
     }
 
-    getCartById(id) {        
-        this.getCarts();
+    async getCartById(id) {        
+        /* this.getCarts();
         let cart = this.carts.find(item => item.id == id);
         
-        return cart ? cart.products : {"error":"No se encontró el Carrito!"};
+        return cart ? cart.products : {"error":"No se encontró el Carrito!"}; */
+        return await cartModel.find({_id:id}).lean();
     }
 
-    createCart() {
-        const cart = {id:this.getId(), products:[]};
+    async createCart() {
+        /* const cart = {id:this.getId(), products:[]};
         this.carts.push(cart);
-        this.saveCarts();
+        this.saveCarts(); */
+        await cartModel.create({products:[]});
     }
 
-    addCartProduct(cid, pid) {
-        this.getCarts();
+    async addCartProduct(cid, pid) {
+        /* this.getCarts();
         let cart = this.carts.find(item => item.id == cid);
         let product = cart.products.find(item => item.product == pid)
 
@@ -57,12 +61,24 @@ class CartManager {
             cart.products.push(product);
         }
 
-        this.saveCarts();
+        this.saveCarts(); */
+        let cart = await cartModel.findOne({_id:cid}).lean();
+        console.log(cart);
+        let product = cart.products.find(item => item.product == pid);        
+
+        if (product) {
+            product.quantity += 1;
+        } else {
+            let product = {product:pid, quantity:1};
+            cart.products.push(product);
+        }
+
+        await cartModel.updateOne({_id:cid}, {products:cart.products});
     }
 
-    saveCarts() {
+    /* saveCarts() {
         fs.writeFileSync(this.file, JSON.stringify(this.carts));
-    }
+    } */
 }
 
 export default CartManager
