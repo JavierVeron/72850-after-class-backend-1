@@ -3,11 +3,13 @@
         {{#each products.payload}}
             <div class="col-md-3">
                 <div class="card text-center border-0 fw-light">
-                    <img src="{{this.thumbnails}}" class="img-fluid" alt="{{this.title}}">
-                    <div class="card-body">
-                        <p class="card-text">{{this.title}}</p>
-                        <p class="card-text">${{this.price}}</p>
-                    </div>
+                    <a href="/products/{{this.id}}" class="text-decoration-none text-black">
+                        <img src="{{this.thumbnails}}" class="img-fluid" alt="{{this.title}}">
+                        <div class="card-body">
+                            <p class="card-text">{{this.title}}</p>
+                            <p class="card-text">${{this.price}}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         {{/each}}
