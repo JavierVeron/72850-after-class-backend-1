@@ -25,7 +25,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
 
-mongoose.connect("mongodb+srv://javierveron:Xavi123!@cluster0.4sss6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect();
 
 socketServer.on("connection", async socket => {
     const PM = new ProductManager();
